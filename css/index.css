@@ -131,12 +131,17 @@ a:hover {
 
 .item02 {
   position: relative;
-  width: 6em;
+  width: 8em;
   height: 12em;
   margin: 0;
-  line-height: 1em;
-  overflow: hidden;
+  line-height: 1.2em;
+  overflow: visible;
   opacity: 0;
+}
+
+.item02 a {
+  display: block;
+  overflow-wrap: anywhere;
 }
 
 .fade-in {
