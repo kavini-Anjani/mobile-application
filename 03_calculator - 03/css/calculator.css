@@ -28,7 +28,7 @@ body {
 /*******************************************************/
 h1 {
   font-size: 3em;
-  color: rgb(26, 212, 212);
+  color: rgb(96, 86, 176);
   text-align: center;
 }
 /*******************************************************/
@@ -63,7 +63,8 @@ input[type="number"] {
   font-size: 2em;
   text-align: left;
   vertical-align: middle;
-  border: solid 0.01em grey;
+  border: solid 0.01em rgb(149, 83, 177);
+  border-radius: 10px;
 }
 
 #calcType {
@@ -75,6 +76,7 @@ input[type="number"] {
   text-align: left;
   vertical-align: middle;
   border: solid 0.01em grey;
+  border-radius: 10px;
 }
 
 /* #btnEqual {
@@ -94,10 +96,10 @@ input[type="number"] {
   width: 2em;
   line-height: 1.5em;
   font-size: 2em;
-  color: whitesmoke;
-  border: solid 0.1em grey;
+  color: rgb(104, 75, 236);
+  border: solid 0.1em rgb(174, 143, 173);
   border-radius: 0.3em;
-  background: rgb(26, 212, 212);
+  background: rgb(149, 136, 214);
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -114,11 +116,14 @@ input[type="number"] {
   border-radius: 0.3em;
   color: whitesmoke;
   font-size: 1.5em;
-  background: rgb(253, 4, 79);
+  background: rgb(155, 160, 238);
   cursor: pointer; /*カーソルをポインターの形（かたち）にする*/
 }
 #btn99:hover {
-  background: linear-gradient(rgba(255, 0, 0, 0.7), rgba(0, 0, 255, 0.7) 100%);
+  background: linear-gradient(
+    rgba(193, 117, 174, 0.7),
+    rgba(0, 0, 255, 0.7) 100%
+  );
 }
 
 #result {
@@ -139,10 +144,10 @@ footer > p {
   width: 100%;
   margin: 0px;
   padding: 1px;
-  color: whitesmoke;
+  color: rgb(240, 195, 232);
   font: 16px Rajdhani;
   text-align: center;
-  background: rgba(1, 24, 31, 0.7);
+  background: rgba(98, 82, 216, 0.7);
 }
 
 .mgn-01 {
