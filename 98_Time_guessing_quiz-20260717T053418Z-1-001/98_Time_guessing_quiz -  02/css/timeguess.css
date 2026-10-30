@@ -9,14 +9,13 @@ html {
 body {
   line-height: 1.5;
   font-size: 1.6rem; /* 16px */
-  font-family:
-    "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
-    Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
   text-align: center;
-  background-color: rgba(233, 168, 227, 0.6);
+  /* background-color: rgba(233, 168, 227, 0.6); */
   background-blend-mode: soft-light;
-  /* background-image: url(../img/backimg.JPG);
-  background-size: cover; */
+  background-image: url(../img/w.jpg);
+  background-size: cover;
   overflow: hidden;
 }
 
@@ -51,11 +50,31 @@ table,
 
 header {
   margin-top: 8px;
-  color: rgb(255, 251, 0);
+  padding: 15px;
+  color: white;
   font-size: 38px;
   font-weight: bold;
   text-align: center;
-  background: rgb(71, 71, 71);
+
+  background: linear-gradient(90deg, #ff4ecd, #a855f7, #6366f1, #ff4ecd);
+
+  background-size: 300% 300%;
+  animation: rainbow 5s ease infinite;
+
+  text-shadow: 0 0 10px white;
+  box-shadow: 0 5px 20px rgba(168, 85, 247, 0.5);
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .message-container {
@@ -63,6 +82,7 @@ header {
   font-size: 2em;
   font-weight: bold;
   overflow: hidden;
+  color: #b8bbef;
 }
 
 .time-container {
@@ -70,7 +90,7 @@ header {
   flex-flow: row wrap;
   margin: 0px;
   justify-content: center;
-  background: #ffd347;
+  background: #a25eda;
   /* height: 100px;
   line-height: 100px;
   font-size: 50px;
@@ -83,17 +103,88 @@ header {
   font-size: 25px;
 }
 i {
-  color: grey;
+  color: rgb(138, 93, 230);
 }
 #timer {
   font-size: 50px;
 }
 
 .timer-fontColor_hidden {
-  color: #ffd347;
+  color: #b341cf;
 }
 .timer_appear {
   transition: 1s;
+}
+
+/* Timer background */
+.time-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 25px auto;
+  padding: 25px 15px;
+  max-width: 650px;
+  background: linear-gradient(135deg, #251445, #512477, #24113f);
+  border: 2px solid #d8a4ff;
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+/* Timer area */
+.time-item {
+  margin: 0;
+  height: auto;
+  line-height: normal;
+  font-size: 25px;
+}
+
+/* Digital timer */
+#timer {
+  min-width: 280px;
+  padding: 20px 10px;
+  color: #f8d9ff;
+  background: #120d20;
+  border: 2px solid #c084fc;
+  border-radius: 18px;
+  font-family: "Courier New", monospace;
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px #d8a4ff;
+  box-shadow: inset 0 0 15px rgba(192, 132, 252, 0.2),
+    0 0 15px rgba(192, 132, 252, 0.3);
+}
+
+/* Timer hidden while running */
+.timer-fontColor_hidden {
+  color: #1d1534 !important;
+  text-shadow: none !important;
+}
+
+/* Timer reveal */
+.timer_appear {
+  transition: color 1s, text-shadow 1s;
+}
+
+/* Mobile design */
+@media screen and (max-width: 480px) {
+  .time-container {
+    gap: 5px;
+    padding: 15px 5px;
+    margin: 15px 5px;
+  }
+
+  #timer {
+    min-width: 0;
+    padding: 18px 5px;
+    font-size: 32px;
+    letter-spacing: 0;
+  }
+
+  .time-item {
+    font-size: 18px;
+  }
 }
 
 /****************************************/
@@ -112,9 +203,9 @@ i {
   padding: 10px;
   border-radius: 10px;
   font-size: 24px;
-  color: whitesmoke;
-  background: grey;
-  border: solid 2px #333;
+  color: rgb(219, 191, 225);
+  background: linear-gradient(90deg, #ff4ecd, #a855f7, #6366f1, #ff4ecd);
+  border: solid 2px #f274e5;
   user-select: none;
   cursor: pointer; /*カーソルをポインターの形（かたち）にする*/
 }
@@ -134,10 +225,10 @@ footer > p {
   width: 100%;
   margin: 0px;
   padding: 1px;
-  color: whitesmoke;
+  color: rgb(194, 92, 237);
   font: 16px Rajdhani;
   text-align: center;
-  background: rgba(1, 24, 31, 0.7);
+  background: rgba(53, 8, 70, 0.7);
 }
 /********************************************************/
 /* レスポンシブ対応　メディアクエリを使ってCSSを切り替える */
@@ -167,13 +258,13 @@ footer > p {
   border-radius: 0.3em;
   color: whitesmoke;
   font-size: 1.5em;
-  background: rgb(253, 4, 79);
+  background: linear-gradient(90deg, #ff4ecd, #a855f7, #6366f1, #ff4ecd);
   cursor: pointer; /*カーソルをポインターの形（かたち）にする*/
 }
 /* 01-04 add 疑似クラス*/
 #btn99:hover {
   background: linear-gradient(
-    rgba(255, 0, 0, 0.7) 0%,
+    rgba(183, 113, 220, 0.7) 0%,
     rgba(0, 0, 255, 0.7) 100%
   );
 }

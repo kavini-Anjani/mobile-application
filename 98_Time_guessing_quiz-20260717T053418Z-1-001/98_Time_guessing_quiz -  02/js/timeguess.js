@@ -15,6 +15,13 @@ let startTime; // Startボタンクリック時の時刻
 let timeoutid; // ID
 let stopTime = 0; // Stopまでの経過時間
 
+let targetSeconds = Number(prompt("何秒にしますか。", "10"));
+
+if (!Number.isFinite(targetSeconds) || targetSeconds <= 0) {
+  targetSeconds = 10;
+}
+document.getElementById("target-time").textContent = targetSeconds;
+
 // ボタンを"初期"状態とする
 setButtonStateInitial();
 
@@ -44,7 +51,10 @@ btn_stop.addEventListener(
     stopTime = Date.now() - startTime;
 
     // 10秒台なら花火をうちあげる
-    if (stopTime >= 10000 && stopTime < 11000) {
+    if (
+      stopTime >= targetSeconds * 1000 &&
+      stopTime < (targetSeconds + 1) * 1000
+    ) {
       document.body.style.backgroundImage = "url('img/fireworks.gif')";
       document.body.style.backgroundSize = "cover";
       document.body.style.backgroundRepeat = "no-repeat";
@@ -68,12 +78,32 @@ btn_stop.addEventListener(
 ////////////////////////
 btn_reset.addEventListener("click", function () {
   soundControl(sound_reset);
+
+  // 背景を元に戻す
   document.body.style.backgroundImage = "";
-  document.body.style.backgroundColor = " rgba(233, 168, 227, 0.6)";
-  // ボタンを"初期"状態とする
-  setButtonStateInitial();
+  document.body.style.backgroundColor = "";
+
+  // Timerをリセット
   timer.textContent = "00:00.000";
   stopTime = 0;
+
+  // ボタンを初期状態にする
+  setButtonStateInitial();
+
+  // 3秒後に目標時間を入力
+  setTimeout(function () {
+    let inputSeconds = prompt("何秒にしますか。", targetSeconds);
+
+    if (inputSeconds !== null && inputSeconds.trim() !== "") {
+      let newSeconds = Number(inputSeconds);
+
+      if (Number.isFinite(newSeconds) && newSeconds > 0) {
+        targetSeconds = newSeconds;
+      }
+    }
+
+    document.getElementById("target-time").textContent = targetSeconds;
+  }, 3000);
 });
 
 function countUp() {
